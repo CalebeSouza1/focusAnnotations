@@ -1,5 +1,5 @@
 import { getCustomRepository} from "typeorm"
-import { UsersRepositories } from "../repositories/UsersRepositories"
+import { AnnotationsRepositories } from "../repositories/AnnotationsRepositories"
 
 interface IUserRequest {
     id?: string;
@@ -15,7 +15,7 @@ interface IUserRequest {
 class CreateUserService {
     
     async execute(data:IUserRequest) {
-        const usersRepository = getCustomRepository(UsersRepositories);
+        const usersRepository = getCustomRepository(AnnotationsRepositories);
 
         const user = usersRepository.create(data);
         console.log("service", user);

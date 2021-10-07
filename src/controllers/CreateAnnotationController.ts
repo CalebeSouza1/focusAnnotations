@@ -8,9 +8,7 @@ class CreateAnnotationController{
         const {description, propose, day, period, status} = request.body;
 
         const createUserService = new CreateUserService()
-        const data = { description, propose, day, period, status}
-        console.log("controller", data);
-        const user = await createUserService.execute(data);
+        const user = await createUserService.execute({ description, propose, day, period, status});
         console.log("controller", user);
         
         response.status(201).json(user);
