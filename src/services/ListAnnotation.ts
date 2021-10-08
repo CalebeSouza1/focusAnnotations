@@ -2,16 +2,16 @@ import { getCustomRepository } from "typeorm"
 import { AnnotationsRepositories } from "../repositories/AnnotationsRepositories"
 
 
-class ListUser{
+class ListAnnotation{
 
-    async execute(id: string, data: any) {
+    async execute (status:boolean) {
         const annotationsRepositories = getCustomRepository(AnnotationsRepositories);
-
-        const annotations = await annotationsRepositories.find()
+         console.log('Services', status)
+        const annotations = await annotationsRepositories.find({status});
 
         return annotations
     }
 }
 
 
-export {ListUser}
+export {ListAnnotation}
